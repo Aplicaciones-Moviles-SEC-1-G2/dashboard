@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * shadcn tokens (light + dark) with extra sidebar + Tremor-compatible slots
+ * so Tremor charts and React Flow diagrams theme against the same palette.
+ * Colours are HSL triplets; `hsl(var(--token))` composes them in Tailwind.
+ */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+
+    --sidebar: 240 4.8% 97.5%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-accent: 240 5% 90%;
+    --sidebar-accent-foreground: 240 10% 3.9%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 240 5.9% 10%;
+
+    /* Tremor mappings — same brand blue regardless of mode, so charts stay legible. */
+    --tremor-brand: 221 83% 53%;
+    --tremor-brand-emphasis: 221 83% 45%;
+    --tremor-brand-subtle: 221 83% 94%;
+    --tremor-brand-muted: 221 83% 88%;
+    --tremor-brand-faint: 221 83% 97%;
+    --tremor-brand-inverted: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --sidebar: 240 6% 8%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 240 4.9% 83.9%;
+
+    --tremor-brand: 217 91% 60%;
+    --tremor-brand-emphasis: 217 91% 50%;
+    --tremor-brand-subtle: 217 91% 20%;
+    --tremor-brand-muted: 217 91% 25%;
+    --tremor-brand-faint: 217 91% 15%;
+    --tremor-brand-inverted: 240 10% 3.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* React Flow — align Background/Controls/MiniMap with current theme. */
+.react-flow__background {
+  background-color: hsl(var(--background));
+}
+.react-flow__node {
+  color: hsl(var(--card-foreground));
+}
+.react-flow__controls,
+.react-flow__minimap {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  box-shadow: none;
+}
+.react-flow__controls-button {
+  background: hsl(var(--card));
+  border-bottom: 1px solid hsl(var(--border));
+  color: hsl(var(--card-foreground));
+}
+.react-flow__controls-button:hover {
+  background: hsl(var(--accent));
+}
+.react-flow__edge-path {
+  stroke: hsl(var(--muted-foreground));
+}
+.react-flow__arrowhead {
+  fill: hsl(var(--muted-foreground));
+}

@@ -1,0 +1,30 @@
+{
+  "//": "Index deployment is the mobile team's responsibility; this file is reference only.",
+  "indexes": [
+    {
+      "collectionGroup": "vehicleRecords",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "type", "order": "ASCENDING" },
+        { "fieldPath": "timestamp", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "vehicleRecords",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "isRegistered", "order": "ASCENDING" },
+        { "fieldPath": "type", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "analytics_morning_arrival_curve",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "dayOfWeek", "order": "ASCENDING" },
+        { "fieldPath": "hhmm5", "order": "ASCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
