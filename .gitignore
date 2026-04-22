@@ -58,3 +58,8 @@ yarn-error.log*
 CLAUDE.md
 plans/
 docs/
+
+# Repos anidados que NO pertenecen al dashboard Next.js
+# (evita que git los interprete como submódulos y que Vercel se cuelgue
+# intentando clonarlos sin .gitmodules)
+douch/
